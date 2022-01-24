@@ -1,0 +1,184 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://sprites/main_person/main_person_up.png" type="Texture" id=1]
+[ext_resource path="res://MainPerson.gd" type="Script" id=2]
+[ext_resource path="res://sprites/main_person/main_person_down.png" type="Texture" id=3]
+[ext_resource path="res://sprites/objets/menuBar1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/potions/life_potion.png" type="Texture" id=5]
+[ext_resource path="res://sprites/objets/heart.png" type="Texture" id=6]
+[ext_resource path="res://sprites/objets/gold.png" type="Texture" id=7]
+[ext_resource path="res://sprites/main_person/death_mainPerson.png" type="Texture" id=8]
+[ext_resource path="res://sprites/objets/Level.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+height = 3.57263
+
+[node name="MainPerson" type="KinematicBody2D"]
+position = Vector2( 502.587, 326.358 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "down"
+
+[node name="death_sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.11362, -0.44545 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2( 1.92, 2.16 )
+current = true
+zoom = Vector2( 0.4, 0.4 )
+
+[node name="HpBar" type="Sprite" parent="."]
+position = Vector2( -187.444, -104.344 )
+texture = ExtResource( 4 )
+
+[node name="HpDraw" type="Sprite" parent="HpBar"]
+position = Vector2( -5.89258, 0.486115 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 6 )
+
+[node name="HpLabel" type="Label" parent="HpBar"]
+margin_left = -2.4
+margin_top = -3.0
+margin_right = 6.6
+margin_bottom = 11.0
+rect_scale = Vector2( 0.6, 0.6 )
+text = "1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldBar" type="Sprite" parent="."]
+position = Vector2( -187.444, -80.344 )
+texture = ExtResource( 4 )
+
+[node name="GoldDraw" type="Sprite" parent="GoldBar"]
+position = Vector2( -5.893, 0.486 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="GoldLabel" type="Label" parent="GoldBar"]
+margin_left = -1.028
+margin_top = -3.0
+margin_right = 7.972
+margin_bottom = 11.0
+rect_scale = Vector2( 0.6, 0.6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PotionHpBar" type="Sprite" parent="."]
+position = Vector2( -187.444, -56.344 )
+texture = ExtResource( 4 )
+
+[node name="PotionHpDraw" type="Sprite" parent="PotionHpBar"]
+position = Vector2( -3.37, 0.486 )
+texture = ExtResource( 5 )
+
+[node name="PotionLabel" type="Label" parent="PotionHpBar"]
+margin_left = -1.024
+margin_top = -3.0
+margin_right = 14.976
+margin_bottom = 11.0
+rect_scale = Vector2( 0.6, 0.6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelBar" type="Sprite" parent="."]
+position = Vector2( -187.444, -32.344 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": "spaceY is 24 than bars"
+}
+
+[node name="LevelDraw" type="Sprite" parent="LevelBar"]
+position = Vector2( -6, 0.486 )
+scale = Vector2( 0.3, 0.4 )
+texture = ExtResource( 9 )
+
+[node name="LevelLabel" type="Label" parent="LevelBar"]
+margin_top = -3.0
+margin_right = 16.0
+margin_bottom = 11.0
+rect_scale = Vector2( 0.6, 0.6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SwordBar" type="Sprite" parent="."]
+position = Vector2( -187.444, -8.344 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": "spaceY is 24 than bars"
+}
+
+[node name="SwordDraw" type="Sprite" parent="SwordBar"]
+position = Vector2( 0, 0.486 )
+scale = Vector2( 0.3, 0.4 )
+
+[node name="SwordLabel" type="Label" parent="SwordBar"]
+margin_left = -1.024
+margin_top = -3.0
+margin_right = 14.976
+margin_bottom = 11.0
+rect_scale = Vector2( 0.6, 0.6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="XpBar" type="Sprite" parent="."]
+position = Vector2( -187.444, 16.344 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": "spaceY is 24 than bars"
+}
+
+[node name="XpDraw" type="Sprite" parent="XpBar"]
+position = Vector2( 0, 0.486 )
+scale = Vector2( 0.3, 0.4 )
+
+[node name="XpLabel" type="Label" parent="XpBar"]
+modulate = Color( 0.294118, 0.25098, 0.768627, 1 )
+margin_left = -11.0
+margin_top = -3.75
+margin_right = -1.0
+margin_bottom = 10.25
+rect_scale = Vector2( 0.7, 0.7 )
+text = "1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="death_timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="tree_entered" from="." to="." method="_on_MainPerson_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_MainPerson_tree_exited"]
+[connection signal="tree_exiting" from="." to="." method="_on_MainPerson_tree_exiting"]
+[connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]

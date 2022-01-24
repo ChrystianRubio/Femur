@@ -1,0 +1,7 @@
+{
+
+	"hpPotion": {"value": 5, "quantity": 20},
+	"crystalSword": {"value": 1, "damage": 10, "name": "crystalSword" },
+	"snackSword": {"value": 200, "damage": 15, "name": "snackSword" }
+}
+
