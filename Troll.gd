@@ -7,6 +7,8 @@ export (float) var speed = 0.20
 var damageTroll = 7
 var xpTroll = 25
 
+#onready var timer_death = get_node("death_spider_timer")
+
 
 # variable for data read and write
 var data_statusPerson = File.new()
@@ -43,7 +45,11 @@ func _ready():
 	
 	position.y = rand_range(-10, 130)
 	position.x = rand_range(5, 240)
-
+	
+	
+	#timer_death.set_wait_time(3)
+	#timer_death.start()
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -60,13 +66,20 @@ func _process(delta):
 		$FollowPlayer/CollisionShape2D.scale.y = 0.3
 
 
+
+
 #right click to person to do damage in troll, with collisionshape2d of Troll for be more correcty pointer mouse
 func _on_Troll_input_event(viewport, event, shape_idx):
 	possibilityDamage(55)
+	
+	#starting the timer for desappier death body
+	if self.hp <= PersonStatus["sword"]["damage"]:
+		$death_troll_timer.start()
 
 
-func _on_Timer_timeout():
-	if hp <= 0:
+func _on_death_troll_timer_timeout():
+	if self.hp <= 0:
+		$death_troll_timer.stop()
 		queue_free()
 
 
@@ -101,13 +114,13 @@ func possibilityDamage(percent: int):
 #func for possibility loot troll
 func possibilityLoot(percentPotion: int, percentGold: int, person):
 	var possibility = rand_range(1, 100)
-	print('possibilidade de loot:' , int(possibility))
+	
 	if possibility <= percentPotion:
 		person["hpPotion"] += int(rand_range(1, 2))
-		print('ganhou potion')
+
 	if possibility <= percentGold:
 		person["gold"] += int(rand_range(1, 7))
-		print('ganhou gold')
+
 
 
 # troll follow player

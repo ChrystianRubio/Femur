@@ -21,7 +21,7 @@ func _ready():
 	read_file.open("res://objects.json", File.READ)
 	var read_true = parse_json(read_file.get_as_text())
 	
-	print(read_true["potion"])
+	#print(read_true["potion"])
 	#print(readTrue["hpPotion"])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

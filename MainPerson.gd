@@ -82,20 +82,23 @@ func set_data_Person():
 func get_input():
 	velocity = Vector2()
 
-
 		#movements
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
+		getPositionPlayer() # set position player
 
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= 1
+		getPositionPlayer() # set position player
 
 	if Input.is_action_pressed("ui_down"):
 		velocity.y += 1
+		getPositionPlayer() # set position player
 		$AnimatedSprite.play("down")
 
 	if Input.is_action_pressed("ui_up"):
 		velocity.y -= 1
+		getPositionPlayer() # set position player
 		$AnimatedSprite.play("up")
 
 		# objects hotkeys
@@ -109,18 +112,19 @@ func get_input():
 			set_data_Person()
 
 	velocity = velocity.normalized() * speed
-
+	velocity = move_and_slide(velocity)  # DAR UMA OLHADAD DEPOIS
 
 func _ready():
 	get_data_Person() #acess data base first
 	get_objects_world()
 	get_level_hop()
+	getPositionPlayer()
 
 
 func _physics_process(delta):
 
 	get_input()
-	velocity = move_and_slide(velocity)
+	#velocity = move_and_slide(velocity)  # DAR UMA OLHADAD DEPOIS
 
 
 func _process(delta):
@@ -157,8 +161,8 @@ func _process(delta):
 
 
 	get_data_Person() 
-	getPositionPlayer()
-	currentLevelPlayer()
+	#getPositionPlayer() # set position player
+	currentLevelPlayer() # getting level anx hpMax
 
 
 # inverse of ready, here is the last action a be done before exit

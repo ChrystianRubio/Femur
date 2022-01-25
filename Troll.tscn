@@ -21,7 +21,6 @@ radius = 31.8098
 [node name="Troll" type="KinematicBody2D"]
 show_behind_parent = true
 position = Vector2( 94.1791, 46.9321 )
-rotation = -0.349066
 input_pickable = true
 script = ExtResource( 3 )
 __meta__ = {
@@ -40,9 +39,8 @@ animation = "left"
 visible = false
 texture = ExtResource( 2 )
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
-autostart = true
+[node name="death_troll_timer" type="Timer" parent="."]
+wait_time = 7.0
 
 [node name="FollowPlayer" type="Area2D" parent="."]
 
@@ -51,5 +49,5 @@ shape = SubResource( 3 )
 
 [connection signal="input_event" from="." to="." method="_on_Troll_input_event"]
 [connection signal="tree_exiting" from="." to="." method="_on_Troll_tree_exiting"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="death_troll_timer" to="." method="_on_death_troll_timer_timeout"]
 [connection signal="body_entered" from="FollowPlayer" to="." method="_on_FollowPlayer_body_entered"]

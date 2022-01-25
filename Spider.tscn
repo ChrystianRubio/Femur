@@ -59,8 +59,8 @@ animation = "up"
 visible = false
 texture = ExtResource( 5 )
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+[node name="death_spider_timer" type="Timer" parent="."]
+wait_time = 7.0
 autostart = true
 __meta__ = {
 "_editor_description_": "death timer death_sprite off"
@@ -78,5 +78,5 @@ shape = SubResource( 3 )
 
 [connection signal="input_event" from="." to="." method="_on_Spider_input_event"]
 [connection signal="tree_exiting" from="." to="." method="_on_Spider_tree_exiting"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="death_spider_timer" to="." method="_on_death_spider_timer_timeout"]
 [connection signal="body_entered" from="FollowPlayer" to="." method="_on_FollowPlayer_body_entered"]

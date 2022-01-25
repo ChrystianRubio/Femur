@@ -4,6 +4,10 @@ export (int) var hp = 15
 export (float) var speed = 0.2
 
 
+#position player
+var positionPlayerX = 0
+var positionPlayerY = 0
+
 var damageSpider = 3
 var xpSpider = 3
 var lootSpiderFull = ["gold", "hpPotion"]
@@ -43,17 +47,18 @@ func _ready():
 	get_data_Person()
 	FollowPlayerNewType()
 	randomize() # to the rand_range work
-	set_process(true)  # to the rand_range work
+	#set_process(true)  # to the rand_range work
 	
 	position.y = rand_range(-10, 130) 
 	position.x = rand_range(5, 240)  
 
 
-#func _physics_process(delta):
+func _physics_process(delta):
 	#velocity = Vector2()
 	#velocity = velocity.normalized() * speed
 #	pass
-
+	positionPlayerX = get_parent().get_node("MainPerson").position.x
+	positionPlayerY = get_parent().get_node("MainPerson").position.y
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -74,12 +79,17 @@ func _process(delta):
 # right clique on enemy to fight
 func _on_Spider_input_event(viewport, event, shape_idx):
 	possibilityDamage(70)
+	#starting the timer for desappier death body
+	if self.hp <= PersonStatus["sword"]["damage"]:
+		$death_spider_timer.start()
 
 
 # 10 sec for the death body "desappier"
-func _on_Timer_timeout():
+func _on_death_spider_timer_timeout():
 	if self.hp <= 0:
+		$death_spider_timer.stop()
 		queue_free()
+
 
 
 func _on_FollowPlayer_body_entered(body):
@@ -125,13 +135,13 @@ func possibilityDamage(percent: int):
 # here is not necessary set in db because we have _on_Spider_tree_exiting in the same time
 func possibilityLoot(percentPotion: int, percentGold, person):
 	var possibility = rand_range(1, 100)
-	print('possibilidade de loot:' , possibility)
+	
 	if possibility <= percentPotion:
 		person["hpPotion"] += int(rand_range(1, 1))
-		print('ganhou potion')
+
 	if possibility <= percentGold:
 		person["gold"] += int(rand_range(1, 2))
-		print('ganhou gold')
+
 
 
 func FollowPlayerNewType():
@@ -139,31 +149,32 @@ func FollowPlayerNewType():
 	#here we need 4 or 6 sprite for the simple animation
 	if hp >= 1 :
 		#right up
-		if position.x <= PersonStatus["positionX"] and position.y >= PersonStatus["positionY"]:
+		if position.x <= positionPlayerX and position.y >= positionPlayerY:
 			position.x += speed
 			position.y -= speed
-			#$AnimatedSprite.flip_h = true
+
 			$AnimatedSprite.rotation_degrees = +20
 		#left up
-		elif position.x >= PersonStatus["positionX"] and position.y >= PersonStatus["positionY"]:
+		elif position.x >= positionPlayerX and position.y >= positionPlayerY:
 			position.x -= speed
 			position.y -= speed
-			#$AnimatedSprite.flip_h = false
+
 			$AnimatedSprite.rotation_degrees = -20
 		#right down
-		elif position.x <= PersonStatus["positionX"] and position.y <= PersonStatus["positionY"]:
+		elif position.x <= positionPlayerX and position.y <= positionPlayerY:
 			position.x += speed
 			position.y += speed
-			#$AnimatedSprite.flip_h = true
+
 			$AnimatedSprite.rotation_degrees = 146
 		#left down
-		elif position.x >= PersonStatus["positionX"] and position.y <= PersonStatus["positionY"]:
+		elif position.x >= positionPlayerX and position.y <= positionPlayerY:
 			position.x -= speed
 			position.y += speed
-			#$AnimatedSprite.flip_h = false
+
 			$AnimatedSprite.rotation_degrees = -146
 
 
 # inverse ready, the last action in current tree
 func _on_Spider_tree_exiting():
+	
 	set_data_Person()
