@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://sprites/FemurBackground.png" type="Texture" id=2]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 250.0
+margin_top = 50.0
+margin_right = -274.0
+margin_bottom = -50.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -328.221
+margin_top = -61.8387
+margin_right = 1591.78
+margin_bottom = 1018.16
+rect_scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+modulate = Color( 0.788086, 0.788086, 0.788086, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -250.0
+margin_right = 250.0
+margin_bottom = 250.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineUsername" type="LineEdit" parent="VBoxContainer"]
+margin_right = 500.0
+margin_bottom = 24.0
+align = 1
+placeholder_text = "Username here"
+placeholder_alpha = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonLogin" type="Button" parent="VBoxContainer"]
+margin_top = 28.0
+margin_right = 500.0
+margin_bottom = 48.0
+text = "Login"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonCreate_Account" type="Button" parent="VBoxContainer"]
+margin_top = 52.0
+margin_right = 500.0
+margin_bottom = 72.0
+text = "Create Account"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonExit" type="Button" parent="VBoxContainer"]
+margin_top = 76.0
+margin_right = 500.0
+margin_bottom = 96.0
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StandantTextLogin" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="StandartTextCreated_Account" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="button_down" from="VBoxContainer/ButtonLogin" to="." method="_on_ButtonLogin_button_down"]
+[connection signal="button_down" from="VBoxContainer/ButtonCreate_Account" to="." method="_on_ButtonCreate_Account_button_down"]
+[connection signal="button_down" from="VBoxContainer/ButtonExit" to="." method="_on_ButtonExit_button_down"]
+[connection signal="timeout" from="StandantTextLogin" to="." method="_on_StandantTextLogin_timeout"]
+[connection signal="timeout" from="StandartTextCreated_Account" to="." method="_on_StandartTextCreated_Account_timeout"]

@@ -12,7 +12,7 @@ func _on_spaw_timeout():
 
 #init spaw of spider
 func _on_spaw_init_timeout():
-	for i in range(rand_range(0, 6)):
+	for i in range(rand_range(1, 6)):
 		add_child(spaw_spider.instance())
 
 

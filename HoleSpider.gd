@@ -8,5 +8,5 @@ func _ready():
 
 func _on_HoleSpider_body_entered(body):
 	if body.name == "MainPerson":
-		get_tree().change_scene("res://SpiderCave1.tscn")
+		get_tree().change_scene("SpiderCave1.tscn")
 

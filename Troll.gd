@@ -6,66 +6,27 @@ export (float) var speed = 0.20
 
 var damageTroll = 7
 var xpTroll = 25
-
-#onready var timer_death = get_node("death_spider_timer")
-
-
-# variable for data read and write
-var data_statusPerson = File.new()
-var PersonStatus = {}
-var	data_bagPerson = File.new()
-var bagCurrentPerson = {}
-
-
-#func for acess data base json
-func get_data_Person():
-	data_statusPerson.open("res://MainPersonStatus.json", File.READ)
-	data_bagPerson.open("res://MainPersonBag.json", File.READ)
-	bagCurrentPerson = parse_json(data_bagPerson.get_as_text())
-	PersonStatus = parse_json(data_statusPerson.get_as_text())
-	data_bagPerson.close()
-	data_statusPerson.close()
-
-
-func set_data_Person():
-	data_statusPerson.open("res://MainPersonStatus.json", File.WRITE)
-	data_bagPerson.open("res://MainPersonBag.json", File.WRITE)
-	data_bagPerson.store_line(to_json(bagCurrentPerson))
-	data_statusPerson.store_line(to_json(PersonStatus))
-	
-	data_bagPerson.close()
-	data_statusPerson.close()
+var walk = Vector2()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#pass # Replace with function body.
 	randomize() # to the rand_range work
-	set_process(true)  # to the rand_range work
-	
+
+	#for random position
 	position.y = rand_range(-10, 130)
 	position.x = rand_range(5, 240)
-	
-	
-	#timer_death.set_wait_time(3)
-	#timer_death.start()
-		
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	get_data_Person()
+
 	FollowPlayerNewType()
 	
-	if hp <= 0:
+	if self.hp <= 0:
 		$CollisionShape2D.disabled = true
-		$AnimatedSprite.visible = false
-		$death_sprite.visible = true
-		
-		# for collision more correty in death sprite
-		$FollowPlayer/CollisionShape2D.scale.x = 0.3
-		$FollowPlayer/CollisionShape2D.scale.y = 0.3
-
-
+		show_behind_parent = true
+		$AnimatedSprite.play("death")
 
 
 #right click to person to do damage in troll, with collisionshape2d of Troll for be more correcty pointer mouse
@@ -73,7 +34,7 @@ func _on_Troll_input_event(viewport, event, shape_idx):
 	possibilityDamage(55)
 	
 	#starting the timer for desappier death body
-	if self.hp <= PersonStatus["sword"]["damage"]:
+	if self.hp <= 0:
 		$death_troll_timer.start()
 
 
@@ -89,11 +50,11 @@ func _on_FollowPlayer_body_entered(body):
 	# here loot of troll go to the person bag dictionary, when he walk on the death troll
 	if hp <= 0 and body.name == "MainPerson":
 		
-		possibilityLoot(30, 45, bagCurrentPerson)
+		possibilityLoot(30, 45, get_parent().get_node("MainPerson").bagCurrent)
+		get_parent().get_node("MainPerson").PersonStatus["xp"] += xpTroll
+		get_parent().get_node("MainPerson").setLifeWithLevelUp() # for full life when level up
+		get_parent().get_node("MainPerson").currentLevelPlayer()
 
-		#set xp of person
-		PersonStatus["xp"] += xpTroll
-		
 		queue_free()  #queue free for delete this troll, if the person not get the loot in 10 sec
 					  # the death body will desappier
 
@@ -102,13 +63,12 @@ func _on_FollowPlayer_body_entered(body):
 func possibilityDamage(percent: int):
 	var possibility = rand_range(1, 100)
 	if self.hp >= 1:
-		if Input.is_action_pressed("ui_mouse_right"):
-			# possibility of our person make damage in troll
-			self.hp -= PersonStatus["sword"]["damage"] # getting damage of player/sword in db
-			# possibility of troll make damage in our person
+		if Input.is_action_just_pressed("ui_mouse_right"):
+			# player damage in troll
+			self.hp -= get_parent().get_node("MainPerson").PersonStatus["sword"]["damage"] # getting damage of player/sword in db
+			# possibility of troll make damage in player
 			if possibility <= percent:
-				PersonStatus["hp"] -= damageTroll
-				set_data_Person()
+				get_parent().get_node("MainPerson").PersonStatus["hp"] -= damageTroll
 
 
 #func for possibility loot troll
@@ -122,36 +82,52 @@ func possibilityLoot(percentPotion: int, percentGold: int, person):
 		person["gold"] += int(rand_range(1, 7))
 
 
-
 # troll follow player
 func FollowPlayerNewType():
+	
+	walk = Vector2()
 	#here we need 4 or 6 sprite for the simple animation
 	if hp >= 1 :
 		#right up
-		if position.x < PersonStatus["positionX"] and position.y > PersonStatus["positionY"]:
+		if position.x < get_parent().get_node("MainPerson").position.x and position.y > get_parent().get_node("MainPerson").position.y:
 			position.x += speed
 			position.y -= speed
-			$AnimatedSprite.flip_h = true
-			$AnimatedSprite.rotation_degrees = -20
+			#$AnimatedSprite.flip_h = true
+			$AnimatedSprite.play("right")
+			rotation_degrees = -20
+
 		#left up
-		elif position.x > PersonStatus["positionX"] and position.y > PersonStatus["positionY"]:
+		elif position.x > get_parent().get_node("MainPerson").position.x and position.y > get_parent().get_node("MainPerson").position.y:
 			position.x -= speed
 			position.y -= speed
-			$AnimatedSprite.flip_h = false
-			$AnimatedSprite.rotation_degrees = +20
+			#$AnimatedSprite.flip_h = false
+			$AnimatedSprite.play("left")
+			rotation_degrees = +20
+
 		#right down
-		elif position.x < PersonStatus["positionX"] and position.y < PersonStatus["positionY"]:
+		elif position.x < get_parent().get_node("MainPerson").position.x and position.y < get_parent().get_node("MainPerson").position.y:
 			position.x += speed
 			position.y += speed
-			$AnimatedSprite.flip_h = true
-			$AnimatedSprite.rotation_degrees = +20
+			#$AnimatedSprite.flip_h = true
+			$AnimatedSprite.play("right")
+			rotation_degrees = +20
+
 		#left down
-		elif position.x > PersonStatus["positionX"] and position.y < PersonStatus["positionY"]:
+		elif position.x > get_parent().get_node("MainPerson").position.x and position.y < get_parent().get_node("MainPerson").position.y:
 			position.x -= speed
 			position.y += speed
-			$AnimatedSprite.flip_h = false
-			$AnimatedSprite.rotation_degrees = -20
+			#$AnimatedSprite.flip_h = false
+			$AnimatedSprite.play("left")
+			rotation_degrees = -20
+
+		walk = walk.normalized() * speed
+		walk = move_and_slide(walk)
 
 
-func _on_Troll_tree_exiting():
-	set_data_Person()
+# for all death spider be behind than other
+func _on_Troll_tree_entered():
+	if self.hp <= 0:
+		show_behind_parent = true
+		$death_sprite.show_behind_parent = true
+	else:
+		$AnimatedSprite.show_behind_parent = true

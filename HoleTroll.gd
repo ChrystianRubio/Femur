@@ -8,4 +8,4 @@ func _ready():
 
 func _on_HoleTroll_body_entered(body):
 	if body.name == "MainPerson":
-		get_tree().change_scene("res://TrollCave.tscn")
+		get_tree().change_scene("TrollCave.tscn")

@@ -15,5 +15,5 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_spaw_init_timeout():
-	for i in range(rand_range(0, 3)):
+	for i in range(rand_range(1, 3)):
 		add_child(spaw_troll.instance())
