@@ -138,7 +138,6 @@ func get_input():
 			add_child(pauseGui.instance())
 
 
-
 	velocity = velocity.normalized() * speed
 	velocity = move_and_slide(velocity)  
 
@@ -153,7 +152,6 @@ func _ready():
 
 
 func _physics_process(delta):
-
 	get_input()
 
 
@@ -266,5 +264,4 @@ func currentLevelPlayer():
 func setLifeWithLevelUp():
 	if PersonStatus["xp"] > levelsWorld[str(PersonStatus["level"])]["end"]:
 		PersonStatus["hp"] = PersonStatus["hpMax"] + 50
-
 

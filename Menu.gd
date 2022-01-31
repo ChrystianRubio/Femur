@@ -31,8 +31,10 @@ func _on_ButtonLogin_button_down():
 	# verify if loginUserFile is null or not
 	if loginUserFile != ".json": 
 
+		#FIX 
 		# SEM A VERIFICAO O JOGO SE INICIA POREM NAO SALVA EM NENHUM LUGAR
 		# FICA TUDO VOLTANDOO, preciso melhorar essa parte
+
 		verifyLoginUser = File.new()
 		verifyLoginUser.open("db/userCurrent.json", File.WRITE) 
 		verifyLoginUser.store_line(to_json({"userCurrent": loginUserDirectory}))

@@ -106,6 +106,7 @@ radius = 9.92423
 
 [node name="Troll" type="KinematicBody2D"]
 position = Vector2( 94.1791, 46.9321 )
+z_index = 1
 input_pickable = true
 script = ExtResource( 3 )
 __meta__ = {

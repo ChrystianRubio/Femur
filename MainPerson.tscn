@@ -110,7 +110,7 @@ height = 9.10364
 [node name="MainPerson" type="KinematicBody2D"]
 position = Vector2( 502.057, 321.585 )
 scale = Vector2( 0.8, 0.8 )
-z_index = 1
+z_index = 4
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -141,6 +141,7 @@ margin_left = 485.109
 margin_top = 231.066
 margin_right = 535.109
 margin_bottom = 281.066
+mouse_filter = 2
 value = 10.0
 texture_under = ExtResource( 12 )
 texture_progress = ExtResource( 10 )
@@ -153,6 +154,7 @@ margin_top = 585.0
 margin_right = 500.0
 margin_bottom = 595.0
 rect_scale = Vector2( 2.05, 1.25 )
+mouse_filter = 2
 max_value = 0.0
 texture_under = ExtResource( 11 )
 texture_progress = ExtResource( 13 )
@@ -180,6 +182,7 @@ margin_top = 160.0
 margin_right = 32.0
 margin_bottom = 192.0
 rect_scale = Vector2( 3, 3 )
+mouse_filter = 2
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true,
@@ -213,6 +216,7 @@ margin_top = 240.0
 margin_right = 32.0
 margin_bottom = 272.0
 rect_scale = Vector2( 3, 3 )
+mouse_filter = 2
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true,
@@ -245,6 +249,7 @@ margin_top = 320.0
 margin_right = 32.0
 margin_bottom = 352.0
 rect_scale = Vector2( 3, 3 )
+mouse_filter = 2
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true,
@@ -273,6 +278,7 @@ margin_top = -117.726
 margin_right = 43.2728
 margin_bottom = -67.7255
 rect_scale = Vector2( 6, 6 )
+mouse_filter = 2
 texture_under = ExtResource( 12 )
 texture_progress = ExtResource( 10 )
 __meta__ = {

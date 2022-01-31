@@ -260,11 +260,10 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=7]
-radius = 4.40189
+radius = 3.32726
 height = 8.35549
 
 [node name="Spider" type="KinematicBody2D"]
-show_behind_parent = true
 position = Vector2( 82.2251, 44.9904 )
 scale = Vector2( 0.4, 0.4 )
 input_pickable = true
@@ -285,6 +284,7 @@ animation = "up"
 visible = false
 show_behind_parent = true
 position = Vector2( 0.62288, 9.06569 )
+z_index = 1
 frames = SubResource( 52 )
 animation = "death"
 
