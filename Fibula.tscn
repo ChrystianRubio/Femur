@@ -13,43 +13,43 @@
 [ext_resource path="res://sprites/swords/crystal_sword.png" type="Texture" id=20]
 [ext_resource path="res://sprites/swords/snake_sword.png" type="Texture" id=21]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=1]
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=2]
 radius = 18.4982
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 6.42719
 height = 0.0
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 4.64722
 height = 0.0
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 4.92603
 height = 13.2647
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="CapsuleShape2D" id=6]
 radius = 4.45871
 height = 10.5197
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 30.9107, 30, 0.0954285, 30, 0.0954285, 0, 30.9107, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=15]
-points = PoolVector2Array( 30.9107, 30, 0.0954285, 30, 0.0954285, 0, 30.9107, 0 )
-
 [sub_resource type="ConvexPolygonShape2D" id=11]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=12]
-points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=13]
-points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
-
-[sub_resource type="TileSet" id=14]
+[sub_resource type="TileSet" id=12]
 0/name = "Dungeon_Tileset.png 0"
 0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )
@@ -90,14 +90,14 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 10 )
+1/shape = SubResource( 7 )
 1/shape_one_way = false
 1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 1, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 10 ),
+"shape": SubResource( 7 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -153,14 +153,14 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 5/navigation_offset = Vector2( 0, 0 )
 5/shape_offset = Vector2( 0, 0 )
 5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-5/shape = SubResource( 11 )
+5/shape = SubResource( 9 )
 5/shape_one_way = false
 5/shape_one_way_margin = 1.0
 5/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 11 ),
+"shape": SubResource( 9 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/z_index = 0
@@ -174,14 +174,14 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 6/navigation_offset = Vector2( 0, 0 )
 6/shape_offset = Vector2( 0, 0 )
 6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-6/shape = SubResource( 12 )
+6/shape = SubResource( 10 )
 6/shape_one_way = false
 6/shape_one_way_margin = 1.0
 6/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 12 ),
+"shape": SubResource( 10 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 6/z_index = 0
@@ -209,14 +209,14 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 8/navigation_offset = Vector2( 0, 0 )
 8/shape_offset = Vector2( 0, 0 )
 8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-8/shape = SubResource( 13 )
+8/shape = SubResource( 11 )
 8/shape_one_way = false
 8/shape_one_way_margin = 1.0
 8/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 13 ),
+"shape": SubResource( 11 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 8/z_index = 0
@@ -251,14 +251,14 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 10/navigation_offset = Vector2( 0, 0 )
 10/shape_offset = Vector2( 0, 0 )
 10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-10/shape = SubResource( 15 )
+10/shape = SubResource( 8 )
 10/shape_one_way = false
 10/shape_one_way_margin = 1.0
 10/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 15 ),
+"shape": SubResource( 8 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 10/z_index = 0
@@ -306,7 +306,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HoleSpider"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="holeSpriteSpider" type="Sprite" parent="HoleSpider"]
 position = Vector2( 2.09204, 0.081543 )
@@ -320,7 +320,7 @@ script = ExtResource( 16 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HoleTroll"]
 position = Vector2( -0.51001, -0.437195 )
 scale = Vector2( 0.312475, 0.425837 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="holeSpriteTroll" type="Sprite" parent="HoleTroll"]
 position = Vector2( 1.31586, -0.988586 )
@@ -339,7 +339,7 @@ texture = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="life_potion"]
 position = Vector2( -1.18128, 0.342697 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="mana_potion" type="Area2D" parent="."]
 show_behind_parent = true
@@ -354,7 +354,7 @@ texture = ExtResource( 18 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mana_potion"]
 position = Vector2( -0.0975952, -0.847015 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="crystal_sword" type="Area2D" parent="."]
 show_behind_parent = true
@@ -371,7 +371,7 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="crystal_sword"]
 position = Vector2( -2.69131, -2.62389 )
 rotation = 0.575959
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="snake_sword" type="Area2D" parent="."]
 show_behind_parent = true
@@ -388,12 +388,12 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="snake_sword"]
 position = Vector2( 0.283752, -0.026947 )
 rotation = 0.575959
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="TileMapBase" type="TileMap" parent="."]
 show_behind_parent = true
 z_index = -1
-tile_set = SubResource( 14 )
+tile_set = SubResource( 12 )
 cell_size = Vector2( 32, 32 )
 show_collision = true
 format = 1
@@ -401,11 +401,11 @@ tile_data = PoolIntArray( -655340, 1610612737, 10, -655339, 1610612737, 10, -655
 
 [node name="TileMapAcessories" type="TileMap" parent="."]
 z_index = 6
-tile_set = SubResource( 14 )
+tile_set = SubResource( 12 )
 cell_size = Vector2( 32, 32 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( -196602, 1, 65536, -131066, 1, 131072, 262157, 1, 65536, 262159, 1, 65536, 327693, 1, 131072, 327695, 1, 131072, 458765, 1, 65536, 458767, 1, 65536, 524301, 1, 131072, 524303, 1, 131072 )
+tile_data = PoolIntArray( -196602, 1, 65536, -131066, 8, 0, 262157, 1, 65536, 262159, 1, 65536, 327693, 8, 0, 327695, 8, 0, 458765, 1, 65536, 458767, 1, 65536, 524301, 8, 0, 524303, 8, 0 )
 
 [connection signal="tree_exiting" from="." to="." method="_on_Fibula_tree_exiting"]
 [connection signal="body_entered" from="HoleSpider" to="HoleSpider" method="_on_HoleSpider_body_entered"]

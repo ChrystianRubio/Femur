@@ -62,7 +62,7 @@ func _on_FollowPlayer_body_entered(body):
 	# here loot of spider go to the person bag dictionary, when he walk on the death spider
 	if hp <= 0 and body.name == "MainPerson":
 
-		possibilityLoot(10, 65, get_parent().get_node("MainPerson").bagCurrent)
+		possibilityLoot(5, 65, get_parent().get_node("MainPerson").bagCurrent)
 		
 		#set xp of person
 		get_parent().get_node("MainPerson").PersonStatus["xp"] += xpSpider

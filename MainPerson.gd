@@ -17,7 +17,7 @@ var bagCurrent = {
 var PersonStatus = {
 	"hp": 50,
 	"xp": 0,
-	"xpLost": 25, 
+	"xpLost": 100, 
 	"hpMax": 50,
 	"level": 1,
 	"sword": {"value": 0, "name": "", "damage": 0},
@@ -202,7 +202,6 @@ func _on_crystal_sword_input_event(viewport, event, shape_idx):
 			bagCurrent["gold"] -= objectsWorld["crystalSword"]["value"]
 			PersonStatus["sword"] = objectsWorld["crystalSword"]
 			#set_data_Person() # not working here
-			print('crystal')
 
 
 func _on_snake_sword_input_event(viewport, event, shape_idx):
@@ -210,8 +209,6 @@ func _on_snake_sword_input_event(viewport, event, shape_idx):
 		if bagCurrent["gold"] >= objectsWorld["snakeSword"]["value"]:
 			bagCurrent["gold"] -= objectsWorld["snakeSword"]["value"]
 			PersonStatus["sword"] = objectsWorld["snakeSword"]
-			print('snack')
-
 
 
 func deathOfPerson():
@@ -257,7 +254,7 @@ func currentLevelPlayer():
 		if PersonStatus["xp"] >= levelsWorld[str(x)]["start"] and PersonStatus["xp"] <= levelsWorld[str(x)]["end"]:
 			PersonStatus["level"] = x
 			PersonStatus["hpMax"] =  50 * x
-			PersonStatus["xpLost"] = 25 * x
+			PersonStatus["xpLost"] = 100 * x
 
 
 # full life when level up

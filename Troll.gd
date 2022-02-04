@@ -50,7 +50,7 @@ func _on_FollowPlayer_body_entered(body):
 	# here loot of troll go to the person bag dictionary, when he walk on the death troll
 	if hp <= 0 and body.name == "MainPerson":
 		
-		possibilityLoot(30, 45, get_parent().get_node("MainPerson").bagCurrent)
+		possibilityLoot(10, 45, get_parent().get_node("MainPerson").bagCurrent)
 		get_parent().get_node("MainPerson").PersonStatus["xp"] += xpTroll
 		get_parent().get_node("MainPerson").setLifeWithLevelUp() # for full life when level up
 		get_parent().get_node("MainPerson").currentLevelPlayer()

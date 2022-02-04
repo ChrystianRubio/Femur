@@ -1,25 +1,26 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://sprites/tilesMaps/Dungeon_Tileset.png" type="Texture" id=1]
 [ext_resource path="res://MainPerson.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/tilesMaps/[Base]BaseChip_pipo.png" type="Texture" id=3]
 [ext_resource path="res://TrollCave.gd" type="Script" id=5]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=1]
 radius = 9.96012
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
-points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=7]
-points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=8]
-points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
-
-[sub_resource type="TileSet" id=4]
+[sub_resource type="TileSet" id=6]
 0/name = "Dungeon_Tileset.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -60,14 +61,14 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 5 )
+1/shape = SubResource( 2 )
 1/shape_one_way = false
 1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 1, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -123,14 +124,14 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 5/navigation_offset = Vector2( 0, 0 )
 5/shape_offset = Vector2( 0, 0 )
 5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-5/shape = SubResource( 6 )
+5/shape = SubResource( 3 )
 5/shape_one_way = false
 5/shape_one_way_margin = 1.0
 5/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 6 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/z_index = 0
@@ -144,14 +145,14 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 6/navigation_offset = Vector2( 0, 0 )
 6/shape_offset = Vector2( 0, 0 )
 6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-6/shape = SubResource( 7 )
+6/shape = SubResource( 4 )
 6/shape_one_way = false
 6/shape_one_way_margin = 1.0
 6/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 7 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 6/z_index = 0
@@ -179,17 +180,110 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 8/navigation_offset = Vector2( 0, 0 )
 8/shape_offset = Vector2( 0, 0 )
 8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-8/shape = SubResource( 8 )
+8/shape = SubResource( 5 )
 8/shape_one_way = false
 8/shape_one_way_margin = 1.0
 8/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 8 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 8/z_index = 0
+9/name = "Dungeon_Tileset.png 9"
+9/texture = ExtResource( 1 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 0, 0, 96, 128 )
+9/tile_mode = 1
+9/autotile/bitmask_mode = 0
+9/autotile/bitmask_flags = [  ]
+9/autotile/icon_coordinate = Vector2( 0, 0 )
+9/autotile/tile_size = Vector2( 32, 32 )
+9/autotile/spacing = 0
+9/autotile/occluder_map = [  ]
+9/autotile/navpoly_map = [  ]
+9/autotile/priority_map = [  ]
+9/autotile/z_index_map = [  ]
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
+9/shapes = [  ]
+9/z_index = 0
+10/name = "[Base]BaseChip_pipo.png 10"
+10/texture = ExtResource( 3 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 96, 832, 32, 32 )
+10/tile_mode = 2
+10/autotile/icon_coordinate = Vector2( 0, 0 )
+10/autotile/tile_size = Vector2( 32, 32 )
+10/autotile/spacing = 0
+10/autotile/occluder_map = [  ]
+10/autotile/navpoly_map = [  ]
+10/autotile/priority_map = [  ]
+10/autotile/z_index_map = [  ]
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape_one_way = false
+10/shape_one_way_margin = 0.0
+10/shapes = [  ]
+10/z_index = 0
+11/name = "[Base]BaseChip_pipo.png 11"
+11/texture = ExtResource( 3 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 96, 800, 32, 32 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
+11/shapes = [  ]
+11/z_index = 0
+12/name = "[Base]BaseChip_pipo.png 12"
+12/texture = ExtResource( 3 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 64, 832, 64, 32 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
+12/shapes = [  ]
+12/z_index = 0
+13/name = "[Base]BaseChip_pipo.png 13"
+13/texture = ExtResource( 3 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 0, 832, 256, 64 )
+13/tile_mode = 2
+13/autotile/icon_coordinate = Vector2( 0, 0 )
+13/autotile/tile_size = Vector2( 32, 32 )
+13/autotile/spacing = 0
+13/autotile/occluder_map = [  ]
+13/autotile/navpoly_map = [  ]
+13/autotile/priority_map = [  ]
+13/autotile/z_index_map = [  ]
+13/occluder_offset = Vector2( 0, 0 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape_one_way = false
+13/shape_one_way_margin = 0.0
+13/shapes = [  ]
+13/z_index = 0
 
 [node name="TrollCave" type="Node2D"]
 script = ExtResource( 5 )
@@ -210,7 +304,7 @@ position = Vector2( 1.12246, 0 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 show_behind_parent = true
 position = Vector2( 2.83482, 6.26425 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="spaw_init" type="Timer" parent="."]
 wait_time = 0.1
@@ -219,14 +313,14 @@ autostart = true
 
 [node name="TileMapBase" type="TileMap" parent="."]
 show_behind_parent = true
-tile_set = SubResource( 4 )
+tile_set = SubResource( 6 )
 cell_size = Vector2( 32, 32 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( -196609, 6, 0, -262144, 6, 0, -262143, 6, 0, -262142, 6, 0, -262141, 6, 0, -262140, 6, 0, -262139, 6, 0, -262138, 6, 0, -262137, 6, 0, -262136, 6, 0, -262135, 6, 0, -131074, 6, 0, -131073, 1, 65549, -196608, 1, 65549, -196607, 1, 65549, -196606, 1, 65549, -196605, 1, 65549, -196604, 1, 65549, -196603, 1, 65549, -196602, 1, 65549, -196601, 1, 11, -196600, 1, 11, -196599, 1, 11, -196598, 6, 0, -65538, 6, 0, -65537, 1, 65549, -131072, 1, 131082, -131071, 1, 12, -131070, 1610612737, 12, -131069, 1, 65549, -131068, 1, 65549, -131067, 1, 65549, -131066, 1, 65549, -131065, 1, 65549, -131064, 1, 12, -131063, 1, 11, -131062, 6, 0, -2, 6, 0, -1, 1, 65549, -65536, 1, 65549, -65535, 1, 65549, -65534, 1, 65549, -65533, 1, 65549, -65532, 1, 65549, -65531, 1, 65549, -65530, 1, 65549, -65529, 1, 65549, -65528, 1, 65549, -65527, 1, 65549, -65526, 6, 0, 65534, 6, 0, 65535, 1, 65549, 0, 1, 65549, 1, 1, 65549, 2, 1, 65549, 3, 1, 65549, 4, 1, 65549, 5, 1, 65549, 6, 1, 65549, 7, 1, 65549, 8, 1, 65549, 9, 1, 65549, 10, 6, 0, 131070, 6, 0, 131071, 1, 65549, 65536, 1, 65549, 65537, 1, 65549, 65538, 1, 65549, 65539, 1, 65549, 65540, 1, 65549, 65541, 1, 65549, 65542, 1, 65549, 65543, 1, 65549, 65544, 1, 10, 65545, 1, 65549, 65546, 6, 0, 196606, 6, 0, 196607, 1, 65549, 131072, 1, 65549, 131073, 1, 65549, 131074, 1, 65549, 131075, 1, 65549, 131076, 1, 65549, 131077, 1, 65549, 131078, 1, 65549, 131079, 1, 10, 131080, 1, 65549, 131081, 1, 65549, 131082, 6, 0, 262142, 6, 0, 262143, 1, 65549, 196608, 1, 65549, 196609, 1, 65549, 196610, 1, 65549, 196611, 1, 65549, 196612, 1, 65549, 196613, 1, 65549, 196614, 1, 65549, 196615, 1, 65549, 196616, 1, 65549, 196617, 1, 65549, 196618, 6, 0, 327678, 6, 0, 327679, 1, 65549, 262144, 1, 65549, 262145, 1, 65549, 262146, 1, 65549, 262147, 1, 65549, 262148, 1, 65549, 262149, 1, 65549, 262150, 1, 65549, 262151, 1, 65549, 262152, 1, 65549, 262153, 1, 65549, 262154, 6, 0, 393215, 6, 0, 327680, 6, 0, 327681, 6, 0, 327682, 6, 0, 327683, 6, 0, 327684, 6, 0, 327685, 6, 0, 327686, 6, 0, 327687, 6, 0, 327688, 6, 0, 327689, 6, 0 )
+tile_data = PoolIntArray( -196610, 13, 2, -196609, 13, 65536, -262144, 13, 65536, -262143, 13, 65536, -262142, 13, 65536, -262141, 13, 65536, -262140, 13, 65536, -262139, 13, 65536, -262138, 13, 65536, -262137, 13, 65536, -262136, 13, 65536, -262135, 13, 65536, -262134, 13, 3, -131074, 13, 0, -131073, 1, 65549, -196608, 1, 65549, -196607, 1, 65549, -196606, 1, 65549, -196605, 1, 65549, -196604, 1, 65549, -196603, 1, 65549, -196602, 1, 65549, -196601, 1, 11, -196600, 1, 11, -196599, 1, 11, -196598, 13, 0, -65538, 13, 0, -65537, 1, 65549, -131072, 1, 131082, -131071, 1, 12, -131070, 1610612737, 12, -131069, 1, 65549, -131068, 1, 65549, -131067, 1, 65549, -131066, 1, 65549, -131065, 1, 65549, -131064, 1, 12, -131063, 1, 11, -131062, 13, 0, -2, 13, 0, -1, 1, 65549, -65536, 1, 65549, -65535, 1, 65549, -65534, 1, 65549, -65533, 1, 65549, -65532, 1, 65549, -65531, 1, 65549, -65530, 1, 65549, -65529, 1, 65549, -65528, 1, 65549, -65527, 1, 65549, -65526, 13, 0, 65534, 13, 0, 65535, 1, 65549, 0, 1, 65549, 1, 1, 65549, 2, 1, 65549, 3, 1, 65549, 4, 1, 65549, 5, 1, 65549, 6, 1, 65549, 7, 1, 65549, 8, 1, 65549, 9, 1, 65549, 10, 13, 0, 131070, 13, 0, 131071, 1, 65549, 65536, 1, 65549, 65537, 1, 65549, 65538, 1, 65549, 65539, 1, 65549, 65540, 1, 65549, 65541, 1, 65549, 65542, 1, 65549, 65543, 1, 65549, 65544, 1, 10, 65545, 1, 65549, 65546, 13, 0, 196606, 13, 0, 196607, 1, 65549, 131072, 1, 65549, 131073, 1, 65549, 131074, 1, 65549, 131075, 1, 65549, 131076, 1, 65549, 131077, 1, 65549, 131078, 1, 65549, 131079, 1, 10, 131080, 1, 65549, 131081, 1, 65549, 131082, 13, 0, 262142, 13, 0, 262143, 1, 65549, 196608, 1, 65549, 196609, 1, 65549, 196610, 1, 65549, 196611, 1, 65549, 196612, 1, 65549, 196613, 1, 65549, 196614, 1, 65549, 196615, 1, 65549, 196616, 1, 65549, 196617, 1, 65549, 196618, 13, 0, 327678, 13, 0, 327679, 1, 65549, 262144, 1, 65549, 262145, 1, 65549, 262146, 1, 65549, 262147, 1, 65549, 262148, 1, 65549, 262149, 1, 65549, 262150, 1, 65549, 262151, 1, 65549, 262152, 1, 65549, 262153, 1, 65549, 262154, 13, 0, 393214, 13, 65538, 393215, 13, 65536, 327680, 13, 65536, 327681, 13, 65536, 327682, 13, 65536, 327683, 13, 65536, 327684, 13, 65536, 327685, 13, 65536, 327686, 13, 65536, 327687, 13, 65536, 327688, 13, 65536, 327689, 13, 65536, 327690, 13, 65539 )
 
 [node name="TileMapAcessories" type="TileMap" parent="."]
-tile_set = SubResource( 4 )
+tile_set = SubResource( 6 )
 cell_size = Vector2( 32, 32 )
 show_collision = true
 format = 1
@@ -235,11 +329,11 @@ tile_data = PoolIntArray( -196602, 1, 196608, -131071, 1, 65539, -65536, 1, 1966
 [node name="TileMapAcessoriesPilar" type="TileMap" parent="."]
 show_behind_parent = true
 z_index = 5
-tile_set = SubResource( 4 )
+tile_set = SubResource( 6 )
 cell_size = Vector2( 32, 32 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( -196600, 1, 12, -131064, 7, 0, -65528, 8, 0 )
+tile_data = PoolIntArray( -131064, 7, 0, -65528, 8, 0 )
 
 [connection signal="timeout" from="spaw" to="." method="_on_spaw_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
