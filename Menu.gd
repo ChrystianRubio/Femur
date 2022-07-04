@@ -31,10 +31,6 @@ func _on_ButtonLogin_button_down():
 	# verify if loginUserFile is null or not
 	if loginUserFile != ".json": 
 
-		#FIX 
-		# SEM A VERIFICAO O JOGO SE INICIA POREM NAO SALVA EM NENHUM LUGAR
-		# FICA TUDO VOLTANDOO, preciso melhorar essa parte
-
 		verifyLoginUser = File.new()
 		verifyLoginUser.open("db/userCurrent.json", File.WRITE) 
 		verifyLoginUser.store_line(to_json({"userCurrent": loginUserDirectory}))
@@ -43,7 +39,7 @@ func _on_ButtonLogin_button_down():
 		verifyLoginUser = Directory.new()
 
 		if verifyLoginUser.dir_exists("users/" + loginUserDirectory): 
-			# crieate o file de name current
+			# create a file de name current
 			verifyLoginUser = File.new()
 			verifyLoginUser.open("db/userCurrent.json", File.WRITE) 
 			verifyLoginUser.store_line(to_json({"userCurrent": loginUserDirectory}))
@@ -69,7 +65,7 @@ func _on_ButtonCreate_Account_button_down():
 
 		if verifyLoginUser.dir_exists("users/" + loginUserDirectory):
 			$VBoxContainer/ButtonCreate_Account.text = "account exist"
-		else: # verify if account not exist to create
+		else: # verify if account dont exist to create
 			verifyLoginUser.open("users/")
 			verifyLoginUser.make_dir(loginUserDirectory)
 			$VBoxContainer/ButtonCreate_Account.text = "account created"
